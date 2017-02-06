@@ -14,12 +14,12 @@
     tools:showIn="@layout/activity_main">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/todoItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        tools:listitem="@android:layout/simple_list_item_2" />
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:layout_width="match_parent"

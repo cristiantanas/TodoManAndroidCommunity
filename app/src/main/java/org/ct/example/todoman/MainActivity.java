@@ -5,12 +5,24 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    RecyclerView todoItemsRv;
+    TodoItemListAdapter todoItemsAdapter;
+    TextView listEmpty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +39,30 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(createToDoItemIntent);
             }
         });
+
+        listEmpty = (TextView) findViewById(R.id.list_empty);
+
+        todoItemsRv = (RecyclerView) findViewById(R.id.todoItems);
+        todoItemsRv.setHasFixedSize(true);
+        todoItemsRv.setLayoutManager(new LinearLayoutManager(this));
+        todoItemsRv.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        List<TodoItem> todoItems = TodoItem.listAll(TodoItem.class);
+        if ( todoItems.size() > 0 ) {
+            listEmpty.setVisibility(View.GONE);
+            if (todoItemsAdapter != null) {
+                todoItemsAdapter.changeList(todoItems);
+                todoItemsAdapter.notifyDataSetChanged();
+            }
+            else {
+                todoItemsAdapter = new TodoItemListAdapter(todoItems);
+                todoItemsRv.setAdapter(todoItemsAdapter);
+            }
+        }
     }
 
     @Override
