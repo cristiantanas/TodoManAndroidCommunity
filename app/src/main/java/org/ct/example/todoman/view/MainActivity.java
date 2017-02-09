@@ -14,7 +14,6 @@ import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.ct.example.todoman.CreateToDoItemActivity;
 import org.ct.example.todoman.R;
 import org.ct.example.todoman.TodoItem;
 import org.ct.example.todoman.TodoItemListAdapter;

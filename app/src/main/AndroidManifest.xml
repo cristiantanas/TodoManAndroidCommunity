@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateToDoItemActivity"></activity>
+        <activity android:name=".view.CreateToDoItemActivity"></activity>
 
         <meta-data android:name="DATABASE" android:value="todo_items.db" />
         <meta-data android:name="VERSION" android:value="3" />

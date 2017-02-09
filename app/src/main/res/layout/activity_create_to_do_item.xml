@@ -8,13 +8,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="org.ct.example.todoman.CreateToDoItemActivity">
+    tools:context="org.ct.example.todoman.view.CreateToDoItemActivity">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textShortMessage|textPersonName"
-        android:text="Enter title"
+        android:hint="Enter title"
         android:ems="10"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -33,7 +33,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp"
         android:id="@+id/todoDescription"
-        android:text="Enter description" />
+        android:hint="Enter description" />
 
     <TextView
         android:text="Date not set"
@@ -75,4 +75,13 @@
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/todoSave"
         android:layout_toEndOf="@+id/todoSave" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"/>
 </RelativeLayout>
