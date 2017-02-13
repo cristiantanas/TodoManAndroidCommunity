@@ -1,10 +1,15 @@
-package org.ct.example.todoman;
+package org.ct.example.todoman.view;
 
-import com.orm.SugarRecord;
+import com.mobandme.android.transformer.compiler.Mappable;
+import com.mobandme.android.transformer.compiler.Mapped;
 
-public class TodoItem extends SugarRecord {
-    private String      title;
-    private String      description;
+import org.ct.example.todoman.model.TodoItemRecord;
+
+@Mappable( with = TodoItemRecord.class )
+public class TodoItem {
+    @Mapped private String title;
+    @Mapped private String description;
+    @Mapped private String dueDate;
 
     public String getTitle() {
         return title;
@@ -27,16 +32,6 @@ public class TodoItem extends SugarRecord {
     }
 
     public void setDueDate(String dueDate) {
-        this.dueDate = dueDate;
-    }
-
-    private String        dueDate;
-
-    public TodoItem() { }
-
-    public TodoItem(String title, String description, String dueDate) {
-        this.title = title;
-        this.description = description;
         this.dueDate = dueDate;
     }
 }

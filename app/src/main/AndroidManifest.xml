@@ -22,7 +22,7 @@
         <activity android:name=".view.CreateToDoItemActivity"></activity>
 
         <meta-data android:name="DATABASE" android:value="todo_items.db" />
-        <meta-data android:name="VERSION" android:value="3" />
+        <meta-data android:name="VERSION" android:value="4" />
         <meta-data android:name="QUERY_LOG" android:value="false" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="org.ct.example.todoman" />
     </application>

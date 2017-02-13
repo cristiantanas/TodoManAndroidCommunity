@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.ct.example.todoman.view.TodoItem;
+
 import java.util.List;
 
 

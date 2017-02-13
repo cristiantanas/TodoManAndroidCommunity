@@ -1,10 +1,14 @@
 package org.ct.example.todoman.presenter;
 
 
-import org.ct.example.todoman.view.MainView;
-import org.ct.example.todoman.TodoItem;
-import org.ct.example.todoman.service.GetItemsService;
+import com.mobandme.android.transformer.Transformer;
 
+import org.ct.example.todoman.view.MainView;
+import org.ct.example.todoman.model.TodoItemRecord;
+import org.ct.example.todoman.service.GetItemsService;
+import org.ct.example.todoman.view.TodoItem;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainPresenterImpl implements MainPresenter, GetItemsService.OnFinishedListener {
@@ -30,10 +34,21 @@ public class MainPresenterImpl implements MainPresenter, GetItemsService.OnFinis
     }
 
     @Override
-    public void onFinished(List<TodoItem> items) {
+    public void onFinished(List<TodoItemRecord> items) {
         if (mainView != null) {
-            mainView.updateView(items);
+            mainView.updateView( fromModelItems(items) );
             mainView.hideProgress();
         }
+    }
+
+    private List<TodoItem> fromModelItems(List<TodoItemRecord> items) {
+        Transformer todoItemTransformer = new Transformer.Builder()
+                .build(TodoItem.class);
+        List<TodoItem> viewItems = new ArrayList<>();
+        for (TodoItemRecord modelItem : items) {
+            viewItems.add( todoItemTransformer.transform(modelItem, TodoItem.class) );
+        }
+
+        return viewItems;
     }
 }

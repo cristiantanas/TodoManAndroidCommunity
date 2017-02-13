@@ -2,9 +2,8 @@ package org.ct.example.todoman.service;
 
 import android.os.Handler;
 
-import org.ct.example.todoman.TodoItem;
+import org.ct.example.todoman.model.TodoItemRecord;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -35,8 +34,8 @@ public class CreateItemService {
             }
 
             if ( !error ) {
-                TodoItem todoItem = new TodoItem(title, description, dueDate);
-                todoItem.save();
+                TodoItemRecord todoItemRecord = new TodoItemRecord(title, description, dueDate);
+                todoItemRecord.save();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override

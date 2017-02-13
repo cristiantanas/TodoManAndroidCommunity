@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.ct.example.todoman.R;
-import org.ct.example.todoman.TodoItem;
+import org.ct.example.todoman.model.TodoItemRecord;
 import org.ct.example.todoman.TodoItemListAdapter;
 import org.ct.example.todoman.presenter.MainPresenter;
 import org.ct.example.todoman.presenter.MainPresenterImpl;

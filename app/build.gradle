@@ -29,4 +29,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:recyclerview-v7:25.1.0'
     compile 'com.github.satyan:sugar:1.4'
+    compile 'com.mobandme:android-transformer:1.2'
+    provided 'com.mobandme:android-transformer-compiler:1.2'
 }
