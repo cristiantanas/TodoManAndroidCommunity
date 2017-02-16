@@ -1,4 +1,4 @@
-package org.ct.example.todoman;
+package org.ct.example.todoman.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.ct.example.todoman.view.TodoItem;
+import org.ct.example.todoman.R;
 
 import java.util.List;
 

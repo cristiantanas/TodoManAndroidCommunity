@@ -3,7 +3,7 @@ package org.ct.example.todoman.presenter;
 
 import com.mobandme.android.transformer.Transformer;
 
-import org.ct.example.todoman.view.MainView;
+import org.ct.example.todoman.hexagon.MainViewPort;
 import org.ct.example.todoman.model.TodoItemRecord;
 import org.ct.example.todoman.service.GetItemsService;
 import org.ct.example.todoman.view.TodoItem;
@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainPresenterImpl implements MainPresenter, GetItemsService.OnFinishedListener {
-    private MainView mainView;
+    private MainViewPort mainView;
     private GetItemsService itemsService;
 
-    public MainPresenterImpl(MainView view, GetItemsService service) {
+    public MainPresenterImpl(MainViewPort view, GetItemsService service) {
         this.mainView = view;
         this.itemsService = service;
     }

@@ -11,12 +11,13 @@ import android.widget.Toast;
 
 import org.ct.example.todoman.DatePicker;
 import org.ct.example.todoman.R;
+import org.ct.example.todoman.hexagon.CreateViewPort;
 import org.ct.example.todoman.presenter.CreateTodoItemPresenter;
 import org.ct.example.todoman.presenter.CreateTodoItemPresenterImpl;
 import org.ct.example.todoman.service.CreateItemService;
 
 public class CreateToDoItemActivity extends AppCompatActivity
-        implements CreateTodoItemView, DatePicker.OnUserSetDate {
+        implements CreateViewPort, DatePicker.OnUserSetDate {
 
     ProgressBar progressBar;
     EditText todoTitle;

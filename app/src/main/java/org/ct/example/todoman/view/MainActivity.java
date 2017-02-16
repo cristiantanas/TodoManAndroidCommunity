@@ -15,21 +15,22 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.ct.example.todoman.R;
-import org.ct.example.todoman.model.TodoItemRecord;
-import org.ct.example.todoman.TodoItemListAdapter;
+import org.ct.example.todoman.hexagon.MainViewPort;
 import org.ct.example.todoman.presenter.MainPresenter;
 import org.ct.example.todoman.presenter.MainPresenterImpl;
 import org.ct.example.todoman.service.GetItemsService;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements MainView {
+public class MainActivity extends AppCompatActivity {
 
     RecyclerView todoItemsRv;
     TodoItemListAdapter todoItemsAdapter;
+
     TextView listEmpty;
     ProgressBar progressBar;
-    MainPresenter viewPresenter;
+
+    MainViewAdapter viewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +56,13 @@ public class MainActivity extends AppCompatActivity implements MainView {
         todoItemsRv.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         progressBar = (ProgressBar) findViewById(R.id.progress);
-        viewPresenter = new MainPresenterImpl(this, new GetItemsService());
+        viewAdapter = new MainViewAdapter(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        viewPresenter.onResume();
+        viewAdapter.getData();
     }
 
     @Override
@@ -86,20 +87,17 @@ public class MainActivity extends AppCompatActivity implements MainView {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
     public void showProgress() {
         progressBar.setVisibility(View.VISIBLE);
         todoItemsRv.setVisibility(View.GONE);
     }
 
-    @Override
     public void hideProgress() {
         progressBar.setVisibility(View.GONE);
         todoItemsRv.setVisibility(View.VISIBLE);
     }
 
-    @Override
-    public void updateView(List<TodoItem> items) {
+    public void setListItems(List<TodoItem> items) {
         if ( items.size() > 0 ) {
             listEmpty.setVisibility(View.GONE);
             if (todoItemsAdapter != null) {
@@ -118,7 +116,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     protected void onDestroy() {
-        viewPresenter.onDestroy();
         super.onDestroy();
     }
 }

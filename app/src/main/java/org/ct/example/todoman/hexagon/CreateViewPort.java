@@ -1,7 +1,7 @@
-package org.ct.example.todoman.view;
+package org.ct.example.todoman.hexagon;
 
 
-public interface CreateTodoItemView {
+public interface CreateViewPort {
     void showProgress();
     void hideProgress();
     void displayRequiredTitleError();

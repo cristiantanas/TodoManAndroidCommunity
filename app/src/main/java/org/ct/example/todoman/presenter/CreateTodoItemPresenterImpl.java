@@ -2,14 +2,14 @@ package org.ct.example.todoman.presenter;
 
 
 import org.ct.example.todoman.service.CreateItemService;
-import org.ct.example.todoman.view.CreateTodoItemView;
+import org.ct.example.todoman.hexagon.CreateViewPort;
 
 public class CreateTodoItemPresenterImpl implements CreateTodoItemPresenter,
         CreateItemService.OnFinishedListener {
-    private CreateTodoItemView createView;
+    private CreateViewPort createView;
     private CreateItemService createService;
 
-    public CreateTodoItemPresenterImpl(CreateTodoItemView view, CreateItemService service) {
+    public CreateTodoItemPresenterImpl(CreateViewPort view, CreateItemService service) {
         this.createView = view;
         this.createService = service;
     }
