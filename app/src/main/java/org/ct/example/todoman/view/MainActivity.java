@@ -8,17 +8,13 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.ct.example.todoman.R;
-import org.ct.example.todoman.hexagon.MainViewPort;
-import org.ct.example.todoman.presenter.MainPresenter;
-import org.ct.example.todoman.presenter.MainPresenterImpl;
-import org.ct.example.todoman.service.GetItemsService;
 
 import java.util.List;
 

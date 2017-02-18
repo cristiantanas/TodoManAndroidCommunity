@@ -4,7 +4,7 @@ import android.os.Handler;
 
 import com.mobandme.android.transformer.Transformer;
 
-import org.ct.example.todoman.hexagon.DataModelPort;
+import org.ct.example.todoman.hexagon.GetDataModelPort;
 import org.ct.example.todoman.hexagon.MainBusinessCase;
 import org.ct.example.todoman.view.TodoItem;
 
@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SugarDatabaseAdapter implements DataModelPort {
+public class SugarGetDatabaseAdapter implements GetDataModelPort {
     private MainBusinessCase mainBusinessCase;
 
-    public SugarDatabaseAdapter(MainBusinessCase mainBusinessCase) {
+    public SugarGetDatabaseAdapter(MainBusinessCase mainBusinessCase) {
         this.mainBusinessCase = mainBusinessCase;
     }
 

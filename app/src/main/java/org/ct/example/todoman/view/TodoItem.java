@@ -11,6 +11,16 @@ public class TodoItem {
     @Mapped private String description;
     @Mapped private String dueDate;
 
+    public TodoItem() {
+
+    }
+
+    public TodoItem(String title, String description, String dueDate) {
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -33,5 +43,13 @@ public class TodoItem {
 
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public boolean hasEmptyTitle() {
+        return title == null || title.isEmpty();
+    }
+
+    public boolean hasDateNotSet() {
+        return dueDate.equalsIgnoreCase("Date not set");
     }
 }

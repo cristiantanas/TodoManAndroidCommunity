@@ -1,6 +1,6 @@
 package org.ct.example.todoman.hexagon;
 
 
-public interface DataModelPort {
+public interface GetDataModelPort {
     void getData();
 }
