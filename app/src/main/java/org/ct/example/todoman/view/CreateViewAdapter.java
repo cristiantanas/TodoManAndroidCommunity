@@ -1,7 +1,15 @@
 package org.ct.example.todoman.view;
 
+import com.mobandme.android.transformer.Transformer;
+
+import org.ct.example.todoman.BusinessCaseFactory;
 import org.ct.example.todoman.hexagon.CreateBusinessCase;
 import org.ct.example.todoman.hexagon.CreateViewPort;
+import org.ct.example.todoman.hexagon.TodoItem;
+import org.ct.example.todoman.model.TodoItemRecord;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreateViewAdapter implements CreateViewPort {
     private CreateToDoItemActivity createToDoItemView;
@@ -9,12 +17,18 @@ public class CreateViewAdapter implements CreateViewPort {
 
     public CreateViewAdapter(CreateToDoItemActivity view) {
         this.createToDoItemView = view;
-        this.createBusinessCase = new CreateBusinessCase(this);
+        this.createBusinessCase = BusinessCaseFactory.getCreateBusinessCase(this);
     }
 
     public void createItem(String title, String description, String dueDate) {
-        TodoItem item = new TodoItem(title, description, dueDate);
-        this.createBusinessCase.createItem(item);
+        TodoItemViewModel item = new TodoItemViewModel(title, description, dueDate);
+        this.createBusinessCase.createItem(transform(item));
+    }
+
+    private TodoItem transform(TodoItemViewModel item) {
+        Transformer todoItemTransformer = new Transformer.Builder()
+                .build(TodoItemViewModel.class);
+        return todoItemTransformer.transform(item, TodoItem.class);
     }
 
     @Override

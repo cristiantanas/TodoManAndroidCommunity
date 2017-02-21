@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         todoItemsRv.setVisibility(View.VISIBLE);
     }
 
-    public void setListItems(List<TodoItem> items) {
+    public void setListItems(List<TodoItemViewModel> items) {
         if ( items.size() > 0 ) {
             listEmpty.setVisibility(View.GONE);
             if (todoItemsAdapter != null) {

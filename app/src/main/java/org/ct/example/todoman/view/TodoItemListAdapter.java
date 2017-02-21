@@ -13,7 +13,7 @@ import java.util.List;
 
 public class TodoItemListAdapter extends RecyclerView.Adapter<TodoItemListAdapter.ViewHolder> {
 
-    private List<TodoItem> todoItems;
+    private List<TodoItemViewModel> todoItems;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView todoTitle;
@@ -28,11 +28,11 @@ public class TodoItemListAdapter extends RecyclerView.Adapter<TodoItemListAdapte
         }
     }
 
-    public TodoItemListAdapter(List<TodoItem> items) {
+    public TodoItemListAdapter(List<TodoItemViewModel> items) {
         this.todoItems = items;
     }
 
-    public void changeList(List<TodoItem> items) {
+    public void changeList(List<TodoItemViewModel> items) {
         this.todoItems = items;
     }
 
@@ -45,7 +45,7 @@ public class TodoItemListAdapter extends RecyclerView.Adapter<TodoItemListAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        TodoItem todoItem = todoItems.get(position);
+        TodoItemViewModel todoItem = todoItems.get(position);
         holder.todoTitle.setText(todoItem.getTitle());
         holder.todoDescription.setText(todoItem.getDescription());
         holder.todoDueDate.setText(todoItem.getDueDate());

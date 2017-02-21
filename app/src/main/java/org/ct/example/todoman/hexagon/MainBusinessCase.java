@@ -1,18 +1,16 @@
 package org.ct.example.todoman.hexagon;
 
 
-import org.ct.example.todoman.model.SugarGetDatabaseAdapter;
-import org.ct.example.todoman.view.TodoItem;
-
 import java.util.List;
 
 public class MainBusinessCase {
     private MainViewPort mainViewPort;
-    private GetDataModelPort dataModelPort;
+    private DataModelPort dataModelPort;
 
-    public MainBusinessCase(MainViewPort viewPort) {
+    public MainBusinessCase(MainViewPort viewPort, DataModelPort modelPort) {
         this.mainViewPort = viewPort;
-        this.dataModelPort = new SugarGetDatabaseAdapter(this);
+        this.dataModelPort = modelPort;
+        this.dataModelPort.setBusinessCase(this);
     }
 
     public void getData() {

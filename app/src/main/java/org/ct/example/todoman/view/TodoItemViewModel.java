@@ -1,21 +1,23 @@
 package org.ct.example.todoman.view;
 
+
 import com.mobandme.android.transformer.compiler.Mappable;
 import com.mobandme.android.transformer.compiler.Mapped;
 
-import org.ct.example.todoman.model.TodoItemRecord;
+import org.ct.example.todoman.hexagon.TodoItem;
 
-@Mappable( with = TodoItemRecord.class )
-public class TodoItem {
-    @Mapped private String title;
+@Mappable( with = TodoItem.class )
+public class TodoItemViewModel {
+    @Mapped
+    private String title;
     @Mapped private String description;
     @Mapped private String dueDate;
 
-    public TodoItem() {
+    public TodoItemViewModel() {
 
     }
 
-    public TodoItem(String title, String description, String dueDate) {
+    public TodoItemViewModel(String title, String description, String dueDate) {
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;

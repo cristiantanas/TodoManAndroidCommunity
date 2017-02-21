@@ -1,16 +1,14 @@
 package org.ct.example.todoman.hexagon;
 
 
-import org.ct.example.todoman.model.SugarCreateDatabaseAdapter;
-import org.ct.example.todoman.view.TodoItem;
-
 public class CreateBusinessCase {
     private CreateViewPort createViewPort;
-    private CreateDataModelPort dataModelPort;
+    private DataModelPort dataModelPort;
 
-    public CreateBusinessCase(CreateViewPort viewPort) {
+    public CreateBusinessCase(CreateViewPort viewPort, DataModelPort modelPort) {
         this.createViewPort = viewPort;
-        this.dataModelPort = new SugarCreateDatabaseAdapter(this);
+        this.dataModelPort = modelPort;
+        this.dataModelPort.setBusinessCase(this);
     }
 
     public void createItem(TodoItem item) {
